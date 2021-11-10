@@ -142,7 +142,6 @@ def parse_account_info(account):
 
 
 # ПРОХОД ПО КАЖДОМУ АККАУНТУ, ПАРСИНГ И ЗАПИСЬ ИНФЫ В СПИСОК СЛОВАРЕЙ base
-accounts = ['https://www.instagram.com/zorachka_agency/']
 account_number = 0
 for acc in accounts:
     try:
