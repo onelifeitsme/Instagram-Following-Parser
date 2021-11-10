@@ -16,7 +16,9 @@ product = str(input())
 login = 'onelifeitsme'
 password = 'OneLife2019'
 
-driver = webdriver.Chrome('/usr/bin/chromedriver', options=chrome_options)
+driver = webdriver.Chrome(options=chrome_options)
+# ЕСЛИ ВЫ НА ЛИНУКСЕ, ТО НУЖНО ИСПОЛЬЗОВАТЬ ВАРИАНТ НИЖЕ
+# driver = webdriver.Chrome('/usr/bin/chromedriver', options=chrome_options)
 
 sleep(1)
 
