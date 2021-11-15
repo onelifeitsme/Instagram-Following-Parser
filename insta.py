@@ -13,8 +13,8 @@ chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
 
 print("Введите ссылку на профиль")
 product = str(input())
-login = 'onelifeitsme'
-password = 'OneLife2019'
+login = 'ВАШ ЛОГИН'
+password = 'ВАШ ПАРОЛЬ'
 
 driver = webdriver.Chrome(options=chrome_options)
 # ЕСЛИ ВЫ НА ЛИНУКСЕ, ТО НУЖНО ИСПОЛЬЗОВАТЬ ВАРИАНТ НИЖЕ
@@ -25,11 +25,11 @@ sleep(1)
 # ФУНКЦИЯ АВТОРИЗАЦИИ
 def sign_ing(login, password):
     sleep(3)
-    login_field = driver.find_element(By.XPATH,'//div[3]/div/label/input')
+    login_field = driver.find_element(By.XPATH,'//input[@name="username"]')
     login_field.send_keys(login)
-    password_field = driver.find_element(By.XPATH,'//div[4]/div/label/input')
+    password_field = driver.find_element(By.XPATH,'//input[@name="password"]')
     password_field.send_keys(password)
-    driver.find_element(By.XPATH,'//*[@id="loginForm"]/div[1]/div[6]/button/div').click()
+    driver.find_element(By.XPATH,'//div[text()="Войти"]').click()
     sleep(4)
 
 driver.get('https://www.instagram.com/')
@@ -37,6 +37,7 @@ driver.get('https://www.instagram.com/')
 sleep(3)
 # КЛИК ПО КНОПКЕ ЛОГИН
 driver.find_element(By.XPATH,'//div[3]/button[1]').click()
+
 # ПРОЦЕСС АВТОРИЗАЦИИ
 sign_ing(login, password)
 driver.get(product)
@@ -44,7 +45,7 @@ sleep(7)
 
 # КЛИК ПО КНОПКЕ ПОДПИСКИ
 following_number = int(driver.find_element(By.XPATH,'//main/div/ul/li[3]/a/span').text)
-driver.find_element(By.XPATH,'//main/div/ul/li[3]/a/span').click()
+driver.find_element(By.XPATH,'//a[contains(@href,"following")]').click()
 
 
 sleep(3)
